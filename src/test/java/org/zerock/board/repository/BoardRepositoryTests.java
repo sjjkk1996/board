@@ -11,6 +11,7 @@ import org.zerock.board.entity.Board;
 import org.zerock.board.entity.Member;
 
 import javax.transaction.Transactional;
+import javax.xml.bind.SchemaOutputResolver;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -59,14 +60,20 @@ public class BoardRepositoryTests {
 //        }
 //    }
 
+//    @Test
+//    public void testWithReplyCount() {
+//        Pageable pageable = PageRequest.of(0,10, Sort.by("bno").descending());
+//        Page<Object[]> result = boardRepository.getBoardWithReplyCount(pageable);
+//        result.get().forEach(row->{
+//            Object[] arr = (Object[])row;
+//            System.out.println(Arrays.toString(arr));
+//        });
+//    }
     @Test
-    public void testWithReplyCount() {
-        Pageable pageable = PageRequest.of(0,10, Sort.by("bno").descending());
-        Page<Object[]> result = boardRepository.getBoardWithReplyCount(pageable);
-        result.get().forEach(row->{
-            Object[] arr = (Object[])row;
-            System.out.println(Arrays.toString(arr));
-        });
+    public void testRead3() {
+        Object result = boardRepository.getBoardByBno(100L);
+        Object[] arr = (Object[]) result;
+        System.out.println(Arrays.toString(arr));
     }
 }
 
