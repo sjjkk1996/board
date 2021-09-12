@@ -3,11 +3,11 @@
 <th:block th:replace="~{/layout/basic :: setContent(~{this::content})}">
     <th:block th:fragment="content">
         <h1 class="mt-4">Board List Page
-            <a th:href="@{/Board/register}">
+            <a th:href="@{/board/register}">
                 <button class="btn btn-outline-primary" id="btnRegister">게시글 등록</button>
             </a>
         </h1>
-        <form action="/Board/list" method="get" id="searchForm">
+        <form action="/board/list" method="get" id="searchForm">
             <div class ="input-group">
                 <input type="hidden" name="page" value="1">
                 <div class="input-group-prepend">
@@ -46,7 +46,7 @@
                          this.getAttribute('data-keyword'))|">
                 <th scope="row">[[${dto.bno}]]</th>
                 <td>[[${dto.title}]]</td>
-                <td>[[${dto.writer}]]</td>
+                <td>[[${dto.writerName}]]</td>
                 <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
             </tr>
             </tbody>
